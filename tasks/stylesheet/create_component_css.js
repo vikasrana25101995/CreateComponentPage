@@ -6,8 +6,8 @@ export class ReactComponentScss
     {
       component_name              = this.capitalizeFirstLetter(component_name);
       this.child_files            = ['Desktop', 'Tablet', 'Mobile', 'Index'];
-      this.component_folder_path  = '../../src/stylesheet';
-      this.component_path         = '../../src/stylesheet/components/'+component_name;
+      this.component_folder_path  = './src/stylesheet';
+      this.component_path         = './src/stylesheet/components/'+component_name;
     }
 
     async create_css_file()
@@ -29,7 +29,7 @@ export class ReactComponentScss
           }
           else
           {
-            this.create_context_file( '../templates/scss_index.scss', new_file_path)
+            this.create_context_file( './tasks/templates/scss_index.scss', new_file_path)
           }
         }
     }

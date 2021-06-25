@@ -6,15 +6,15 @@ export class ReactComponent
     {
       component_name              =  this.lowercaseFirstLetter(component_name);
       this.child_files            =  {
-                                        Actions     : { template_path: '../templates/import_file_syntax.js' },
-                                        Index       : { template_path: '../templates/comp-page-index.js' },
+                                        Actions     : { template_path: './tasks/templates/import_file_syntax.js' },
+                                        Index       : { template_path: './tasks/templates/comp-page-index.js' },
                                         Constants   : { template_path: '' },
-                                        Services    : { template_path: '../templates/import_file_syntax.js' },
-                                        ImportFiles : { template_path: '../templates/import_files.js' },
+                                        Services    : { template_path: './tasks/templates/import_file_syntax.js' },
+                                        ImportFiles : { template_path: './tasks/templates/import_files.js' },
                                      };
-      this.child_files[this.capitalizeFirstLetter(component_name)] = { template_path: '../templates/comp-page.js' }
-      this.component_folder_path  =  '../../src/components';
-      this.component_path         =  '../../src/components/'+component_name;
+      this.child_files[this.capitalizeFirstLetter(component_name)] = { template_path: './tasks/templates/comp-page.js' }
+      this.component_folder_path  =  './src/components';
+      this.component_path         =  './src/components/'+component_name;
     }
 
     async create_component()
@@ -62,7 +62,6 @@ export class ReactComponent
         {
           console.log('The folder is already created');
         }
-
     }
 
     async create_context_file(src_file, dest_file)
@@ -93,4 +92,5 @@ export class ReactComponent
     {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
+
 }
