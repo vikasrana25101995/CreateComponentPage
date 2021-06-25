@@ -21,6 +21,7 @@ export class ReactComponent
     {
       await this.create_folder(this.component_path);
       await this.create_other_file(this.child_files);
+      await this.create_folder(this.component_path+'/images')
     }
 
     create_other_file(files_array)
@@ -75,9 +76,10 @@ export class ReactComponent
 
         await fs.copyFile(src_file, dest_file, (err) =>
         {
+            var filename = dest_file.split('/');
             if (err)
                 throw err;
-            console.log('source.txt was copied to destination.txt');
+            console.log(`${filename[filename.length-1]} ---------  file has been created`);
         });
     }
 
