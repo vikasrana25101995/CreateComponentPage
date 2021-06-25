@@ -12,3 +12,6 @@ Steps for using this program
 	
 	to create component	->  node tasks/component/create.js 
 	to create page 		->  node tasks/page/create.js
+
+
+* The components and pages folder should be present in the src folder. 
