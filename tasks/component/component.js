@@ -10,7 +10,7 @@ export class ReactComponent
                                         Index       : { template_path: './tasks/templates/comp-page-index.js' },
                                         Constants   : { template_path: '' },
                                         Services    : { template_path: './tasks/templates/import_file_syntax.js' },
-                                        ImportFiles : { template_path: './tasks/templates/import_files.js' }
+                                        ImportsFile : { template_path: './tasks/templates/import_files.js' }
                                      };
       this.child_files[this.capitalizeFirstLetter(component_name)] = { template_path: './tasks/templates/comp-page.js' }
       this.component_folder_path  =  './src/components';
