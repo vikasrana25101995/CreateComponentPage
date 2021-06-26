@@ -7,13 +7,13 @@ export class ReactPage
       page_name                   = this.lowercaseFirstLetter(page_name);
       this.child_files            = ['Actions', 'Index', 'Constants', 'Services', 'ImportFiles', page_name];
       this.child_files            =  {
-                                        Actions     : { template_path: './templates/import_file_syntax.js' },
-                                        Index       : { template_path: './templates/comp-page-index.js' },
+                                        Actions     : { template_path: './tasks/templates/import_file_syntax.js' },
+                                        Index       : { template_path: './tasks/templates/comp-page-index.js' },
                                         Constants   : { template_path: '' },
-                                        Services    : { template_path: './templates/import_file_syntax.js' },
-                                        ImportFiles : { template_path: './templates/import_files.js' },
+                                        Services    : { template_path: './tasks/templates/import_file_syntax.js' },
+                                        ImportFiles : { template_path: './tasks/templates/import_files.js' }
                                      };
-      this.child_files[this.capitalizeFirstLetter(page_name)] = { template_path: './templates/comp-page.js' }
+      this.child_files[this.capitalizeFirstLetter(page_name)] = { template_path: './tasks/templates/comp-page.js' }
       this.page_path         = './src/pages/'+page_name;
     }
 
@@ -43,7 +43,7 @@ export class ReactPage
         }
     }
 
-    create_file(path_with_file_name)
+    create_empty_file(path_with_file_name)
     {
         fs.open(path_with_file_name, 'w', (err)=>{
            if(err)
