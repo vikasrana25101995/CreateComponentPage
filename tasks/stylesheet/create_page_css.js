@@ -12,7 +12,7 @@ export class ReactPageScss
       this.child_files          = ['Desktop', 'Tablet', 'Mobile', 'Index'];
       this.page_folder_path     = './src/styles/pages';
       this.page_path            = './src/styles/pages/'+page_name;
-      this.task_path            = './tasks/templates/scss_index.scss';
+      this.task_path            = './Tasks/tasks/templates/scss_index.scss';
     }
 
     generate_css_file()

@@ -12,7 +12,7 @@ export class ReactComponentScss
       this.child_files               = ['Desktop', 'Tablet', 'Mobile', 'Index'];
       this.component_folder_path     = './src/styles/components';
       this.component_path            = './src/styles/components/'+component_name;
-      this.task_path                 = './tasks/templates/scss_index.scss';
+      this.task_path                 = './Tasks/tasks/templates/scss_index.scss';
     }
 
     generate_css_file()

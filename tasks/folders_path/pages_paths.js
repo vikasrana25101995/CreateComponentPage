@@ -7,9 +7,9 @@ export const PagePaths = {
                           }
 
 export const PageTemplatesPaths = {
-                                     actions: './tasks/templates/actions.js',
-                                     pages: './tasks/templates/pages.js',
-                                     constants: './tasks/templates/constants.js',
-                                     services: './tasks/templates/services.js',
-                                     importFiles: './tasks/templates/import_files.js'
+                                     actions: './Tasks/tasks/templates/actions.js',
+                                     pages: './Tasks/tasks/templates/pages.js',
+                                     constants: './Tasks/tasks/templates/constants.js',
+                                     services: './Tasks/tasks/templates/services.js',
+                                     importFiles: './Tasks/tasks/templates/import_files.js'
                                   };

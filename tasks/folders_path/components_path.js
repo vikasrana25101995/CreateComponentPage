@@ -7,9 +7,9 @@ export const ComponentPaths = {
                                }
 
  export const ComponentTemplatesPaths = {
-                                          actions: './tasks/templates/actions.js',
-                                          components: './tasks/templates/components.js',
-                                          constants: './tasks/templates/constants.js',
-                                          services: './tasks/templates/services.js',
-                                          importFiles: './tasks/templates/import_files.js'
+                                          actions: './Tasks/tasks/templates/actions.js',
+                                          components: './Tasks/tasks/templates/components.js',
+                                          constants: './Tasks/tasks/templates/constants.js',
+                                          services: './Tasks/tasks/templates/services.js',
+                                          importFiles: './Tasks/tasks/templates/import_files.js'
                                         };
