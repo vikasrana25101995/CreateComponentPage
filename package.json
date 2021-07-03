@@ -1,0 +1,9 @@
+{
+  "name": "CreateComponentPage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vikasrana25101995/CreateComponentPage.git",
+  "author": "Vikas Rana <vikasrana2510@hotmail.com>",
+  "license": "MIT",
+  "type":"module"
+}
