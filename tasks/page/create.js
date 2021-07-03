@@ -6,7 +6,7 @@ const prompt  = promptSync();
 const name = prompt('Name of the page :-> ');
 
 var react_component = new ReactPage(name);
-react_component.create_page();
+react_component.generate_pages_files();
 
 var react_component_css = new ReactPageScss(name);
-react_component_css.create_css_file();
+react_component_css.generate_css_file();

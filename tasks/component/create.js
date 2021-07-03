@@ -6,7 +6,7 @@ const prompt  = promptSync();
 const name = prompt('Name of the component :-> ');
 
 var react_component = new ReactComponent(name);
-react_component.create_component();
+react_component.generate_components_files();
 
 var react_component_css = new ReactComponentScss(name);
-react_component_css.create_css_file();
+react_component_css.generate_css_file();

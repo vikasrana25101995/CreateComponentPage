@@ -1,86 +1,47 @@
-import fs from 'fs';
+import { CustomFile } from '../common/files_actions.js';
+import { CustomFolder } from '../common/folders_actions.js';
+import { FileName } from  '../common/filename_actions.js';
 
 export class ReactComponentScss
 {
     constructor(component_name)
     {
-      component_name              = this.capitalizeFirstLetter(component_name);
-      this.child_files            = ['Desktop', 'Tablet', 'Mobile', 'Index'];
-      this.component_folder_path  = './src/stylesheet';
-      this.component_path         = './src/stylesheet/components/'+component_name;
+      let filename                   =  new FileName();
+      this.lower_component_name      =  filename.lowercaseFirstLetter(component_name);
+      this.capital_component_name    =  filename.capitalizeFirstLetter(component_name);
+      this.child_files               = ['Desktop', 'Tablet', 'Mobile', 'Index'];
+      this.component_folder_path     = './src/styles/components';
+      this.component_path            = './src/styles/components/'+component_name;
+      this.task_path                 = './tasks/templates/scss_index.scss';
     }
 
-    async create_css_file()
+    generate_css_file()
     {
-      await this.create_folder(this.component_path);
-      await this.create_other_file(this.child_files);
+      for( var filename of this.child_files)
+      {
+        let new_file_path = this.create_folder(filename);
+        this.create_file(filename, new_file_path);
+      }
     }
 
-
-    create_other_file(files_array)
+    create_folder(filename)
     {
-        for( var filename of files_array)
-        {
-          var file_name = filename+'.scss';
-          var new_file_path = this.component_path+"/"+file_name;
-          if(filename != 'Index')
-          {
-            this.create_empty_file(new_file_path);
-          }
-          else
-          {
-            this.create_context_file( './tasks/templates/scss_index.scss', new_file_path)
-          }
-        }
+        let customFolder    = new CustomFolder();
+        let new_folder_path = this.component_folder_path+`/${this.lower_component_name}`;
+        customFolder.create_folder(new_folder_path);
+        return new_folder_path;
     }
 
-
-    create_empty_file(path_with_file_name)
+    create_file(filename, new_file_path)
     {
-        fs.open(path_with_file_name, 'w', (err)=>{
-           if(err)
-           {
-              return console.log('err');
-           }
-        });
-    }
+      let customFile      = new CustomFile();
+      new_file_path       = new_file_path+`/${filename}.scss`;
+      customFile.create_file( new_file_path );
+      if(filename =='Index')
+      {
+        customFile.copy_file( this.task_path, new_file_path );
+      }
 
-
-    async create_context_file(src_file, dest_file)
-    {
-        await fs.open(dest_file, 'w', (err)=>{
-           if(err)
-           {
-              return console.log('err');
-           }
-        });
-
-        await fs.copyFile(src_file, dest_file, (err) =>
-        {
-            if (err)
-                throw err;
-            console.log('source.txt was copied to destination.txt');
-        });
-    }
-
-
-    create_folder(path_with_folder_name)
-    {
-        try
-        {
-          fs.mkdirSync(path_with_folder_name);
-        }
-        catch(error)
-        {
-          console.log('The folder is already created');
-        }
-
-    }
-
-
-    capitalizeFirstLetter(string)
-    {
-      return string.charAt(0).toLowerCase() + string.slice(1);
     }
 
 }

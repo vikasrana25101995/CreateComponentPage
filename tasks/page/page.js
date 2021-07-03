@@ -1,99 +1,56 @@
-import fs from 'fs';
+import {PagePaths, PageTemplatesPaths} from '../folders_path/pages_paths.js';
+import { CustomFile } from '../common/files_actions.js';
+import { CustomFolder } from '../common/folders_actions.js';
+import { FileName } from  '../common/filename_actions.js';
+
 
 export class ReactPage
 {
-    constructor(page_name)
+  constructor(page_name)
+  {
+
+    let filename                   =  new FileName();
+    this.lower_page_name           =  filename.lowercaseFirstLetter(component_name);
+    this.capital_page_name         =  filename.capitalizeFirstLetter(component_name);
+    this.folders_paths             =  PagePaths;
+    this.templates_paths           =  PageTemplatesPaths;
+  }
+
+  generate_pages_files()
+  {
+    for( var filename of Object.keys(this.folders_paths))
     {
-      page_name                   = this.lowercaseFirstLetter(page_name);
-      this.child_files            = ['Actions', 'Index', 'Constants', 'Services', 'ImportFiles', page_name];
-      this.child_files            =  {
-                                        Actions     : { template_path: './tasks/templates/import_file_syntax.js' },
-                                        Index       : { template_path: './tasks/templates/comp-page-index.js' },
-                                        Constants   : { template_path: '' },
-                                        Services    : { template_path: './tasks/templates/import_file_syntax.js' },
-                                        ImportsFile : { template_path: './tasks/templates/import_files.js' }
-                                     };
-      this.child_files[this.capitalizeFirstLetter(page_name)] = { template_path: './tasks/templates/comp-page.js' }
-      this.page_path         = './src/pages/'+page_name;
+
+      let new_folder_path = this.create_folder(filename);
+      this.create_file(filename, new_folder_path);
+    }
+  }
+
+  create_folder(filename)
+  {
+    let new_folder_path = '';
+    if(filename != 'components')
+    {
+      let customFolder    = new CustomFolder();
+      new_folder_path     = this.folders_paths[filename]+`/${this.lower_page_name}`;
+      customFolder.create_folder(new_folder_path);
+    }
+    else
+    {
+      new_folder_path = this.folders_paths[filename];
     }
 
-    async create_page()
-    {
-      await this.create_folder(this.page_path);
-      await this.create_other_file(this.child_files);
-      await this.create_folder(this.component_path+'Images')
-    }
+    return new_folder_path;
+  }
 
-
-    create_other_file(files_array)
-    {
-        for( var filename of Object.keys(files_array))
-        {
-          var file_name     = filename+'.js';
-          var new_file_path = this.page_path+"/"+file_name;
-
-          if( files_array[filename]['template_path'] != '')
-          {
-            this.create_context_file( files_array[filename]['template_path'], new_file_path)
-          }
-          else
-          {
-            this.create_empty_file(new_file_path);
-          }
-        }
-    }
-
-    create_empty_file(path_with_file_name)
-    {
-        fs.open(path_with_file_name, 'w', (err)=>{
-           if(err)
-           {
-              return console.log('err');
-           }
-        });
-    }
-
-    create_folder(path_with_folder_name)
-    {
-        try
-        {
-          fs.mkdirSync(path_with_folder_name);
-        }
-        catch(error)
-        {
-          console.log('The folder is already created');
-        }
-
-    }
-
-    async create_context_file(src_file, dest_file)
-    {
-        await fs.open(dest_file, 'w', (err)=>{
-           if(err)
-           {
-              return console.log('err');
-           }
-        });
-
-        await fs.copyFile(src_file, dest_file, (err) =>
-        {
-            var filename = dest_file.split('/');
-            if (err)
-                throw err;
-
-            console.log(`${filename[filename.length-1]} ---------  file has been created`);
-        });
-    }
-
-
-    lowercaseFirstLetter(string)
-    {
-      return string.charAt(0).toLowerCase() + string.slice(1);
-    }
-
-    capitalizeFirstLetter(string)
-    {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
+  create_file(filename, new_folder_path)
+  {
+    let customFile      = new CustomFile();
+    let new_file_path   = new_folder_path+`/${this.capital_page_name}.js`;
+    customFile.create_file( new_file_path );
+    customFile.copy_file( this.templates_paths[filename], new_file_path );
+    this.filename.replace_text(new_file_path, '/Name/name.js', `/${this.lower_page_name}/${this.capital_page_name}.js`);
+    this.filename.replace_text(new_file_path, 'PageName', `${this.capital_page_name}`);
+  }
+  
 }
