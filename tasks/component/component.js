@@ -26,22 +26,6 @@ export class ReactComponent
       }
     }
 
-    create_folder(filename)
-    {
-      let new_folder_path = '';
-      if(filename != 'components')
-      {
-        let customFolder    = new CustomFolder();
-        new_folder_path     = this.folders_paths[filename]+`/${this.lower_component_name}`;
-        customFolder.create_folder(new_folder_path);
-      }
-      else
-      {
-        new_folder_path = this.folders_paths[filename];
-      }
-
-      return new_folder_path;
-    }
 
     async create_file(filename, new_folder_path)
     {
@@ -49,8 +33,8 @@ export class ReactComponent
       let new_file_path   = new_folder_path+`/${this.capital_component_name}.js`;
       customFile.create_file( new_file_path );
       customFile.copy_file( this.templates_paths[filename], new_file_path );
-      this.filename.replace_text(new_file_path, '/Name/name.js', `/${this.lower_component_name}/${this.capital_component_name}.js`);
-      this.filename.replace_text(new_file_path, 'ComponentName', `${this.capital_component_name}`);
+      await this.filename.replace_text(new_file_path, '/Name/name.js', `/${this.lower_component_name}/${this.capital_component_name}.js`);
+      await this.filename.replace_text(new_file_path, 'ComponentName', `${this.capital_component_name}`);
     }
 
 }

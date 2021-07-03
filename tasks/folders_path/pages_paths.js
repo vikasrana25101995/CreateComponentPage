@@ -2,7 +2,7 @@ export const PagePaths = {
                                   actions:     './src/actions/pages',
                                   constants:   './src/constants/pages',
                                   pages:       './src/pages',
-                                  importFiles: './src/import_files/pages',
+                                  importFiles: './src/imports_files/pages',
                                   services:		 './src/services/pages',
                           }
 
