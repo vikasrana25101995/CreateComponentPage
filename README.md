@@ -17,3 +17,4 @@ Steps for using this program
 
 
 * The components and pages folder should be present in the src folder.
+* Add this folder path in the git ignore so that this folder does not added in the git repository.
