@@ -21,12 +21,13 @@ export class FileName
 
   async replace_text(file_path, string_to_replace, replacement_string)
   {
-     const options = {
-                        files: file_path,
-                        from: string_to_replace,
-                        to: replacement_string,
-                    };
+    const regex = new RegExp(string_to_replace, 'g');
+    const options = {
+                       files: file_path,
+                       from:  regex,
+                       to: replacement_string,
+                   };
 
-      await replace(options);
+     await replace(options);
   }
 }
