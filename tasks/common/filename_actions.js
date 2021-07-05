@@ -16,7 +16,7 @@ export class FileName
     {
         if(word != "_")
         {
-          final_string = final_string + final_word.charAt(0).toUpperCase() + final_string.slice(1);
+          final_string = final_string + final_string.charAt(0).toUpperCase() + final_string.slice(1);
         }
     }
     return final_string;
