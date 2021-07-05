@@ -1,6 +1,6 @@
 import { } from  '../../imports_files/Name/name.js';
 
-export function PageName()
+export default function PageName()
 {
   return (
             <div>

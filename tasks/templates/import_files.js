@@ -1,43 +1,31 @@
-// ----------------------------- REACT LIBRARIES ---------------------------
-    // import React, {Component } from 'react';
-    // import { } from '../../common/actions/fileHonalulu.js';
-// ----------------------------- REACT LIBRARIES ---------------------------
-
+// ----------------------------- LIBRARIES ---------------------------
+      // import React, {Component} from 'react';
+// ----------------------------- LIBRARIES ---------------------------
 
 // ----------------------------- ACTIONS ---------------------------
-    // import { } from './Actions';
-    // import { } from '../../common/actions/fileHonalulu.js';
+      // import { } from '../../actions/common/action-name';
+      // import { } from '../../actions/Component_or_Page/name';
 // ----------------------------- ACTIONS ---------------------------
-
-
-// ----------------------------- COMPONENTS ---------------------------
-    // import { } from './component-Honalulu.js';
-    // import { } from '../../common/actions/fileHonalulu.js';
-// ----------------------------- COMPONENTS ---------------------------
-
 
 // ----------------------------- CONSTANTS ---------------------------
-    // import { } from './Constants';
-    // import { } from '../../common/constants/directory-or-subdirectory-or-fileHonalulu.js';
+      // import { } from '../../constants/common/constant-name';
+      // import { } from '../../constant/Component_or_Page/name';
 // ----------------------------- CONSTANTS ---------------------------
 
 
-// ---------------------------- IMAGES ----------------------------
-  // import {} from './Images/image_Honalulu.js';
-  // import {} from '../../common/images/directory-or-subdirectory-or-image_Honalulu.js';
-// ---------------------------- IMAGES ----------------------------
-
+// ----------------------------- COMPONENTS ---------------------------
+      // import { } from '../../components/component-name';
+// ----------------------------- COMPONENTS ---------------------------
 
 
 // ----------------------------- SERVICES ---------------------------
-    // import { } from './Services';
-    // import { } from '../../common/services/directory-or-subdirectory-or-fileHonalulu.js';
+      // import { } from '../../services/common/service-name';
+      // import { } from '../../services/Component_or_Page/name';
 // ----------------------------- SERVICES ---------------------------
 
 
 // ----------------------------- STYLESHEET ---------------------------
-    // import { } from './Services';
-    // import { } from '../../common/services/directory-or-subdirectory-or-fileHonalulu.js';
+      // import * as Style from '../../style/Component_or_Page/Name/Index.scss';
 // ----------------------------- STYLESHEET ---------------------------
 
 

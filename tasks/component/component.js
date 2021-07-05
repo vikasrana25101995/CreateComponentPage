@@ -33,8 +33,16 @@ export class ReactComponent
       let new_file_path   = new_folder_path+`/${this.capital_component_name}.js`;
       customFile.create_file( new_file_path );
       customFile.copy_file( this.templates_paths[filename], new_file_path );
-      await this.filename.replace_text(new_file_path, '/Name/name.js', `/${this.lower_component_name}/${this.capital_component_name}.js`);
-      await this.filename.replace_text(new_file_path, 'ComponentName', `${this.capital_component_name}`);
+      if( filename !='importFiles')
+      {
+        await this.filename.replace_text(new_file_path, '/Name/name', `/components/${this.capital_component_name}`);
+        await this.filename.replace_text(new_file_path, '/ComponentName', `${this.capital_component_name}`);
+      }
+      else
+      {
+        await this.filename.replace_text(new_file_path, '/Component_or_Page/name', `/components/${this.capital_component_name}`);
+        await this.filename.replace_text(new_file_path, '/Component_or_Page/Name', `/components/${this.lower_component_name}`);
+      }
     }
 
 }
