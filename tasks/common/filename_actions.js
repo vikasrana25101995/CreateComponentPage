@@ -10,7 +10,16 @@ export class FileName
 
   capitalizeFirstLetter(string)
   {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    var new_arr = string.split('_');
+    var final_string = '';
+    for (var word in new_arr)
+    {
+        if(word != "_")
+        {
+          final_string = final_string + final_word.charAt(0).toUpperCase() + final_string.slice(1);
+        }
+    }
+    return final_string;
   }
 
   async replace_text(file_path, string_to_replace, replacement_string)
