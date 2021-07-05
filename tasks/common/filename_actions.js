@@ -12,12 +12,9 @@ export class FileName
   {
     var new_arr = string.split('_');
     var final_string = '';
-    for (var word in new_arr)
+    for (var word of new_arr)
     {
-        if(word != "_")
-        {
-          final_string = final_string + final_string.charAt(0).toUpperCase() + final_string.slice(1);
-        }
+        final_string = final_string + word.charAt(0).toUpperCase() + word.slice(1);
     }
     return final_string;
   }
